@@ -1,0 +1,56 @@
+pdf-engine: xelatex
+
+variables:
+  # Fonts with Hebrew support
+  mainfont: "Arial"
+  sansfont: "Arial"
+  monofont: "Menlo"
+
+  # Language and bidi settings
+  lang: he
+  dir: rtl
+
+  # Document settings
+  documentclass: article
+  geometry: "margin=2.5cm"
+  fontsize: 12pt
+  linestretch: 1.3
+
+  # Header includes for comprehensive Hebrew/Math/Table support
+  header-includes: |
+    \usepackage{polyglossia}
+    \setmainlanguage{hebrew}
+    \setotherlanguage{english}
+    \usepackage{fontspec}
+    \setmainfont{Arial}
+    \newfontfamily\hebrewfont[Script=Hebrew]{Arial}
+    \newfontfamily\englishfont{Arial}
+
+    % Math packages
+    \usepackage{amsmath}
+    \usepackage{amssymb}
+    \usepackage{mathtools}
+    \usepackage{unicode-math}
+    \setmathfont{STIX Two Math}
+
+    % Fix bidi issues with math
+    \usepackage{bidi}
+
+    % Table improvements
+    \usepackage{booktabs}
+    \usepackage{longtable}
+    \usepackage{array}
+
+    % Better list handling
+    \usepackage{enumitem}
+
+    % Links
+    \usepackage{hyperref}
+    \hypersetup{
+      colorlinks=true,
+      linkcolor=blue,
+      urlcolor=blue
+    }
+
+    % Code blocks
+    \usepackage{fancyvrb}

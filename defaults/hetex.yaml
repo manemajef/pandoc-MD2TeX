@@ -1,0 +1,20 @@
+pdf-engine: xelatex
+
+metadata:
+  lang: he
+  dir: rtl
+
+variables:
+  mainfont: DejaVu Sans
+  monofont: DejaVu Sans Mono
+  geometry: margin=2.5cm
+
+header-includes: |
+  \usepackage{polyglossia}
+  \setmainlanguage{hebrew}
+  \setotherlanguage{english}
+  \usepackage{fontspec}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+
+standalone: true

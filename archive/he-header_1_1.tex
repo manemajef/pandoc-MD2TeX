@@ -1,0 +1,14 @@
+% Better math font
+\setmathfont{STIX Two Math}
+
+% Additional table support
+\usepackage{array}
+
+% Better list handling for RTL
+\usepackage{enumitem}
+
+% Fix spacing issues in RTL math
+\AtBeginDocument{%
+  \renewcommand{\implies}{\Rightarrow}%
+  \renewcommand{\iff}{\Leftrightarrow}%
+}

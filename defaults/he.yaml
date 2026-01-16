@@ -1,0 +1,15 @@
+pdf-engine: xelatex
+
+variables:
+  mainfont: "Arial"
+  lang: he
+  polyglossia: true
+  geometry:
+    - top=2cm
+    #- bottom=2cm
+  header-includes:
+    - \usepackage{mathtools}
+    - \makeatletter
+    - >-
+      \renewcommand{\tagform@}[1]{}
+    - \makeatother

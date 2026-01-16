@@ -1,0 +1,23 @@
+pdf-engine: xelatex
+
+variables:
+  mainfont: "Arial"
+  lang: he
+  polyglossia: true
+  geometry:
+    - top=2cm
+    #- bottom=2cm
+  header-includes:
+    - \usepackage{xcolor}
+    - \definecolor{codebg}{HTML}{F5F5F5}
+    - \usepackage{fancyvrb}
+    - \usepackage{framed}
+    - \definecolor{shadecolor}{named}{codebg}
+    - \setlength{\FrameSep}{3pt}
+    - >-
+      \renewenvironment{Shaded}{\begin{snugshade}\nopagebreak}{\end{snugshade}}
+    - \usepackage{mathtools}
+    - \makeatletter
+    - >-
+      \renewcommand{\tagform@}[1]{}
+    - \makeatother
