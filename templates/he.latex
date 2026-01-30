@@ -1,0 +1,53 @@
+% !TEX program = xelatex
+\documentclass[10pt,a4paper]{extarticle}
+
+% --- Layout ---
+\usepackage[margin=2.5cm, top=2cm, bottom=2cm]{geometry}
+\usepackage{multicol}
+\setlength{\columnsep}{0.5cm}
+
+% --- Math ---
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+
+% --- Language (The "Magic") ---
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setdefaultlanguage{hebrew}
+\setotherlanguage{english}
+\newfontfamily\hebrewfont{David CLM}[Script=Hebrew]
+\newfontfamily\englishfont{CMU Serif}
+% Fix for Pandoc's tight lists
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% --- Formatting ---
+\usepackage{enumitem}
+\usepackage{titlesec}
+\setlist{nosep, leftmargin=*, labelsep=0.35em}
+\setlist[itemize]{label={\scriptsize$\bullet$}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+% --- Macros ---
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\rk}{\text{rank}}
+\newcommand{\tr}{\text{tr}}
+\newcommand{\Span}{\text{Span}}
+\newcommand{\Img}{\text{Im}}
+\newcommand{\Ker}{\text{Ker}}
+\newcommand{\proj}{\text{proj}}
+\newcommand{\Row}{\text{Row}}
+\newcommand{\Col}{\text{Col}}
+
+\begin{document}
+
+$if(title)$
+\begin{center}
+\textbf{\Large $title$}
+\end{center}
+\vspace{0.5em}
+$endif$
+
+$body$
+
+\end{document}

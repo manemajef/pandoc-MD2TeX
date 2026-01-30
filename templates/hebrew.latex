@@ -1,9 +1,9 @@
+
 \documentclass[12pt,a4paper]{article}
 \usepackage{mathtools}
 \usepackage{amssymb}
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{hyperref}
-\usepackage{cancel}
 \usepackage{fontspec}
 \setmainfont{DejaVu Sans}[Scale=MatchLowercase,BoldFont=DejaVu Sans Bold,ItalicFont=DejaVu Sans Oblique,BoldItalicFont=DejaVu Sans Bold Oblique,BoldFeatures={Scale=MatchLowercase},ItalicFeatures={Scale=MatchLowercase},BoldItalicFeatures={Scale=MatchLowercase}]
 \setmonofont{DejaVu Sans Mono}
@@ -23,6 +23,9 @@
     \origtext{#1}%
   \fi
 }
+
+% \eng for English text (LTR + CMU Serif)
+\newcommand{\eng}[1]{\textenglish{#1}}
 
 % Pandoc compatibility
 \providecommand{\tightlist}{%
