@@ -1,43 +1,66 @@
-% !TEX program = xelatex
-\documentclass[10pt,a4paper]{extarticle}
+% !TeX program = lualatex
+\documentclass[11pt, a4paper]{article}
 
-% --- Layout ---
-\usepackage[margin=2.5cm, top=2cm, bottom=2cm]{geometry}
-\usepackage{multicol}
-\setlength{\columnsep}{0.5cm}
+% --- 0. SILENCE WARNINGS ---
+\tracinglostchars=0
 
-% --- Math ---
-\usepackage{amsmath, amssymb, amsthm, mathtools}
+% --- 1. PANDOC ESSENTIALS ---
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
 
-% --- Language (The "Magic") ---
-\usepackage{fontspec}
-\usepackage{polyglossia}
-\setdefaultlanguage{hebrew}
-\setotherlanguage{english}
-\newfontfamily\hebrewfont{David CLM}[Script=Hebrew]
-\newfontfamily\englishfont{CMU Serif}
-% Fix for Pandoc's tight lists
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\newcounter{none}
 
-% --- Formatting ---
+\newcommand{\textenglish}[1]{\foreignlanguage{english}{#1}}
+\newenvironment{english}{\begin{otherlanguage}{english}}{\end{otherlanguage}}
+
+% --- 2. LAYOUT ---
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{parskip}
+
+% --- 3. LISTS ---
+% We use double dollars so Pandoc writes a single dollar to the .tex file
 \usepackage{enumitem}
-\usepackage{titlesec}
-\setlist{nosep, leftmargin=*, labelsep=0.35em}
-\setlist[itemize]{label={\scriptsize$\bullet$}}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{0.5em}
+% \setlist[itemize]{label=$$\bullet$$}
+\setlist[itemize]{label=\scalebox{0.6}{$$\bullet$$}}
 
-% --- Macros ---
+% --- 4. LANGUAGE & FONTS ---
+\usepackage[bidi=basic, layout=tabular]{babel}
+\usepackage{fontspec}
+\usepackage[autostyle=true]{csquotes}
+
+\babelprovide[main, import]{hebrew}
+\babelprovide[import, onchar=ids fonts]{english}
+\babelprovide[import=en, onchar=ids fonts]{emoji}
+
+\babelfont[hebrew]{rm}[Renderer=Harfbuzz]{David CLM}
+\babelfont[hebrew]{sf}{Miriam CLM}
+\babelfont[hebrew]{tt}{Miriam Mono CLM}
+
+\babelfont[english]{rm}{CMU Serif}
+\babelfont[english]{sf}{CMU Sans Serif}
+\babelfont[english]{tt}{CMU Typewriter Text}
+
+\babelfont[emoji]{rm}[Renderer=Harfbuzz]{Apple Color Emoji}
+
+% --- 5. MATH ---
+\usepackage{amsmath, amssymb, amsfonts, amsthm}
+
+% --- 6. MACROS ---
 \newcommand{\RR}{\mathbb{R}}
-\newcommand{\rk}{\text{rank}}
-\newcommand{\tr}{\text{tr}}
-\newcommand{\Span}{\text{Span}}
-\newcommand{\Img}{\text{Im}}
-\newcommand{\Ker}{\text{Ker}}
-\newcommand{\proj}{\text{proj}}
-\newcommand{\Row}{\text{Row}}
-\newcommand{\Col}{\text{Col}}
+\newcommand{\rk}{\mathrm{rank}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\Span}{\mathrm{Span}}
+\newcommand{\Img}{\mathrm{Im}}
+\newcommand{\Ker}{\mathrm{Ker}}
+\newcommand{\proj}{\mathrm{proj}}
 
 \begin{document}
 

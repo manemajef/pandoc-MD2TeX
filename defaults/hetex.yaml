@@ -1,20 +1,20 @@
+# Output settings
 pdf-engine: xelatex
 
-metadata:
-  lang: he
-  dir: rtl
+# 1. Use the Fixed Template
 
+template: heb.latex
+
+# 2. Run the Auto-Fix Script
+filters:
+  - /Users/rotemsemah/.pandoc/filters/he-auto.lua # <--- UPDATE YOUR USERNAME
+
+# Variables
 variables:
-  mainfont: DejaVu Sans
-  monofont: DejaVu Sans Mono
-  geometry: margin=2.5cm
-
-header-includes: |
-  \usepackage{polyglossia}
-  \setmainlanguage{hebrew}
-  \setotherlanguage{english}
-  \usepackage{fontspec}
-  \usepackage{amsmath}
-  \usepackage{amssymb}
-
-standalone: true
+  documentclass: extarticle
+  fontsize: 10pt
+  papersize: a4
+  geometry:
+    - margin=2.5cm
+    - top=2cm
+    - bottom=2cm

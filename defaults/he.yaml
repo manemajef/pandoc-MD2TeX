@@ -1,15 +1,12 @@
-pdf-engine: xelatex
+# Output settings
+pdf-engine: lualatex
 
+# Template settings
+# This looks for "tex-he.latex" in your templates folder
+template: he.latex
+
+# Optional: Default variables you can override in Markdown
 variables:
-  mainfont: "Arial"
-  lang: he
-  polyglossia: true
-  geometry:
-    - top=2cm
-    #- bottom=2cm
-  header-includes:
-    - \usepackage{mathtools}
-    - \makeatletter
-    - >-
-      \renewcommand{\tagform@}[1]{}
-    - \makeatother
+  documentclass: extarticle
+  fontsize: 10pt
+  papersize: a4
