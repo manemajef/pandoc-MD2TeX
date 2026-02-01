@@ -1,3 +1,4 @@
 archive/
-tests/*-output.pdf
+.claude
 .DS_Store
+
