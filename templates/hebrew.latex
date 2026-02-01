@@ -1,52 +1,74 @@
+% !TeX program = lualatex
+\documentclass[11pt, a4paper]{article}
 
-\documentclass[12pt,a4paper]{article}
-\usepackage{mathtools}
-\usepackage{amssymb}
+% --- 0. SILENCE WARNINGS ---
+\tracinglostchars=0
+
+% --- 1. PANDOC ESSENTIALS ---
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\newcounter{none}
+
+\newcommand{\textenglish}[1]{\foreignlanguage{english}{#1}}
+\newenvironment{english}{\begin{otherlanguage}{english}}{\end{otherlanguage}}
+
+% --- 2. LAYOUT ---
 \usepackage[margin=2.5cm]{geometry}
-\usepackage{hyperref}
+\usepackage{parskip}
+
+% --- 3. LISTS ---
+% We use double dollars so Pandoc writes a single dollar to the .tex file
+\usepackage{enumitem}
+% \setlist[itemize]{label=$$\bullet$$}
+\setlist[itemize]{label=\scalebox{0.6}{$$\bullet$$}}
+
+% --- 4. LANGUAGE & FONTS ---
+\usepackage[bidi=basic, layout=tabular]{babel}
 \usepackage{fontspec}
-\setmainfont{DejaVu Sans}[Scale=MatchLowercase,BoldFont=DejaVu Sans Bold,ItalicFont=DejaVu Sans Oblique,BoldItalicFont=DejaVu Sans Bold Oblique,BoldFeatures={Scale=MatchLowercase},ItalicFeatures={Scale=MatchLowercase},BoldItalicFeatures={Scale=MatchLowercase}]
-\setmonofont{DejaVu Sans Mono}
-\usepackage{polyglossia}
-\setmainlanguage{hebrew}
-\setotherlanguage{english}
-\newfontfamily\englishfont{CMU Serif}
-\newfontfamily\englishfontsf{CMU Sans Serif}
-\newfontfamily\englishfonttt{CMU Typewriter Text}
-\setcounter{secnumdepth}{0}
-\mathtoolsset{showonlyrefs}
-\let\origtext\text
-\DeclareRobustCommand{\text}[1]{%
-  \ifmmode
-    \hbox{\englishfont #1}%
-  \else
-    \origtext{#1}%
-  \fi
-}
+\usepackage[autostyle=true]{csquotes}
 
-% \eng for English text (LTR + CMU Serif)
-\newcommand{\eng}[1]{\textenglish{#1}}
+\babelprovide[main, import]{hebrew}
+\babelprovide[import, onchar=ids fonts]{english}
+\babelprovide[import=en, onchar=ids fonts]{emoji}
 
-% Pandoc compatibility
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\babelfont[hebrew]{rm}[Renderer=Harfbuzz]{David CLM}
+\babelfont[hebrew]{sf}{Miriam CLM}
+\babelfont[hebrew]{tt}{Miriam Mono CLM}
 
-$if(title)$
-\title{$title$}
-$endif$
-$if(author)$
-\author{$author$}
-$endif$
-$if(date)$
-\date{$date$}
-$else$
-\date{}
-$endif$
+\babelfont[english]{rm}{CMU Serif}
+\babelfont[english]{sf}{CMU Sans Serif}
+\babelfont[english]{tt}{CMU Typewriter Text}
+
+\babelfont[emoji]{rm}[Renderer=Harfbuzz]{Apple Color Emoji}
+
+% --- 5. MATH ---
+\usepackage{amsmath, amssymb, amsfonts, amsthm}
+
+% --- 6. MACROS ---
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\rk}{\mathrm{rank}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\Span}{\mathrm{Span}}
+\newcommand{\Img}{\mathrm{Im}}
+\newcommand{\Ker}{\mathrm{Ker}}
+\newcommand{\proj}{\mathrm{proj}}
 
 \begin{document}
 
 $if(title)$
-\maketitle
+\begin{center}
+\textbf{\Large $title$}
+\end{center}
+\vspace{0.5em}
 $endif$
 
 $body$

@@ -1,12 +1,2 @@
-# Output settings
 pdf-engine: lualatex
-
-# Template settings
-# This looks for "tex-he.latex" in your templates folder
 template: he.latex
-
-# Optional: Default variables you can override in Markdown
-variables:
-  documentclass: extarticle
-  fontsize: 10pt
-  papersize: a4

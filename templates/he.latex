@@ -1,76 +1,37 @@
 % !TeX program = lualatex
 \documentclass[11pt, a4paper]{article}
 
-% --- 0. SILENCE WARNINGS ---
-\tracinglostchars=0
-
-% --- 1. PANDOC ESSENTIALS ---
-\usepackage{longtable}
-\usepackage{booktabs}
-\usepackage{graphicx}
-\usepackage[hidelinks]{hyperref}
-
-\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-\newcounter{none}
-
-\newcommand{\textenglish}[1]{\foreignlanguage{english}{#1}}
-\newenvironment{english}{\begin{otherlanguage}{english}}{\end{otherlanguage}}
-
-% --- 2. LAYOUT ---
+% === LAYOUT ===
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{parskip}
 
-% --- 3. LISTS ---
-% We use double dollars so Pandoc writes a single dollar to the .tex file
-\usepackage{enumitem}
-% \setlist[itemize]{label=$$\bullet$$}
-\setlist[itemize]{label=\scalebox{0.6}{$$\bullet$$}}
-
-% --- 4. LANGUAGE & FONTS ---
-\usepackage[bidi=basic, layout=tabular]{babel}
+% === FONTS & LANGUAGES ===
 \usepackage{fontspec}
-\usepackage[autostyle=true]{csquotes}
+\usepackage[bidi=basic]{babel}
 
 \babelprovide[main, import]{hebrew}
 \babelprovide[import, onchar=ids fonts]{english}
-\babelprovide[import=en, onchar=ids fonts]{emoji}
 
 \babelfont[hebrew]{rm}[Renderer=Harfbuzz]{David CLM}
-\babelfont[hebrew]{sf}{Miriam CLM}
-\babelfont[hebrew]{tt}{Miriam Mono CLM}
-
 \babelfont[english]{rm}{CMU Serif}
-\babelfont[english]{sf}{CMU Sans Serif}
-\babelfont[english]{tt}{CMU Typewriter Text}
+\setmonofont{CMU Typewriter Text}
 
-\babelfont[emoji]{rm}[Renderer=Harfbuzz]{Apple Color Emoji}
+% === MATH ===
+\usepackage{amsmath, amssymb}
 
-% --- 5. MATH ---
-\usepackage{amsmath, amssymb, amsfonts, amsthm}
+% Fix bullets (Hebrew font lacks bullet glyph)
+\renewcommand{\labelitemi}{$$\vcenter{\hbox{\tiny$$\bullet$$}}$$}
 
-% --- 6. MACROS ---
-\newcommand{\RR}{\mathbb{R}}
-\newcommand{\rk}{\mathrm{rank}}
-\newcommand{\tr}{\mathrm{tr}}
-\newcommand{\Span}{\mathrm{Span}}
-\newcommand{\Img}{\mathrm{Im}}
-\newcommand{\Ker}{\mathrm{Ker}}
-\newcommand{\proj}{\mathrm{proj}}
+% === PANDOC NEEDS THESE ===
+\usepackage{longtable, booktabs, graphicx, hyperref}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\newcounter{none} % Pandoc tables reference this
 
+% === DOCUMENT ===
 \begin{document}
-
 $if(title)$
-\begin{center}
-\textbf{\Large $title$}
-\end{center}
+\begin{center}\textbf{\Large $title$}\end{center}
 \vspace{0.5em}
 $endif$
-
 $body$
-
 \end{document}
