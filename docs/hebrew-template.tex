@@ -1,0 +1,34 @@
+
+% !TeX program = lualatex
+\documentclass[11pt, a4paper]{article}
+
+% === LAYOUT ===
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{parskip}
+
+% === FONTS & LANGUAGES ===
+\usepackage{fontspec}
+\usepackage[bidi=basic]{babel}
+
+\babelprovide[main, import]{hebrew}
+\babelprovide[import, onchar=ids fonts]{english}
+
+\babelfont[hebrew]{rm}[Renderer=Harfbuzz]{David CLM}
+\babelfont[english]{rm}{CMU Serif}
+\setmonofont{CMU Typewriter Text}
+
+% === MATH ===
+\usepackage{amsmath, amssymb}
+
+% Fix bullets (Hebrew font lacks bullet glyph)
+\renewcommand{\labelitemi}{\(\tiny\bullet\)}
+
+% === DOCUMENT ===
+\begin{document}
+\begin{center} תבנית לעברית\end{center}
+\section{כותרת 2}
+זוהי פסקה, עכשיו אני יכול to write in englihs וזה אמור לעבוד. בו נראה.
+
+
+This is a whole paragraph in enlgish.  \emph{italic f(x) text}
+\end{document}
