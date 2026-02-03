@@ -1,45 +1,24 @@
 % !TeX program = lualatex
 \documentclass[11pt, a4paper]{article}
-
-% === LAYOUT ===
-\usepackage[margin=2.5cm]{geometry}
-\usepackage{parskip}
-
-% === FONTS & LANGUAGES ===
 \usepackage{fontspec}
 \usepackage[bidi=basic]{babel}
-
 \babelprovide[main, import]{hebrew}
 \babelprovide[import, onchar=ids fonts]{english}
-
 \babelfont[hebrew]{rm}[Renderer=Harfbuzz]{David CLM}
-\babelfont[english]{rm}{CMU Serif}
-\setmonofont{CMU Typewriter Text}
-
-% === MATH ===
+\babelfont[english]{rm}{Latin Modern Roman}
 \usepackage{amsmath, amssymb}
-
-% Fix bullets (Hebrew font lacks bullet glyph)
-\usepackage{enumitem}
-\usepackage{graphicx}
-
-\renewcommand{\labelitemi}{%
-  \raisebox{0.2ex}{\scalebox{0.6}{$\bullet$}}%
-}
-% Define enlgish env
+% Bullet fix
+\usepackage{enumitem, graphicx}
+\renewcommand{\labelitemi}{\raisebox{0.2ex}{\scalebox{0.6}{$\bullet$}}}
 \newcommand{\en}[1]{\foreignlanguage{english}{#1}}
 \newenvironment{english}
   {\begin{otherlanguage}{english}}
   {\end{otherlanguage}}
-  
 
-% === DOCUMENT ===
+\setcounter{secnumdepth}{0}
 \title{}
 \author{}
 \date{}
 \begin{document}
-\maketitle
 
-\section{ חלק א}
-
-\end{document}
+\eng{document}
