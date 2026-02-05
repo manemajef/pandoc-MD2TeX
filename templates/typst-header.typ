@@ -1,5 +1,9 @@
 #set text(dir: rtl)
-#set text(font: "Arial")
+
+// #set text(font: "Arial")
+
+#set text(lang: "en", font: "NewComputerModern")
+#set text(lang: "he", font: "David CLM")
 
 // Configure code blocks
 #show raw.where(block: true): it => {

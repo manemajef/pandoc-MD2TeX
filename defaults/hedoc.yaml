@@ -1,0 +1,12 @@
+# ~/.pandoc/defaults/hebrew-docx.yaml
+# Usage: pandoc -d hebrew-docx input.md -o output.docx
+
+from: markdown+pipe_tables+fenced_code_blocks+yaml_metadata_block
+to: docx
+
+metadata:
+  lang: he
+  dir: rtl
+
+standalone: true
+preserve-tabs: true
