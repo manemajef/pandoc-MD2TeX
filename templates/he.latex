@@ -2,30 +2,35 @@
 \documentclass[11pt, a4paper]{article}
 
 % === LAYOUT ===
-\usepackage[margin=2.5cm]{geometry}
-\usepackage{parskip}
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage[linkcolor=blue,urlcolor=blue,colorlinks=true]{hyperref}
 
 % === FONTS & LANGUAGES ===
-\usepackage{fontspec}
+% \usepackage{fontspec}
 \usepackage[bidi=basic]{babel}
 
 \babelprovide[main, import]{hebrew}
 \babelprovide[import, onchar=ids fonts]{english}
+\babelfont[hebrew]{rm}{David CLM}
 
-\babelfont[hebrew]{rm}[Renderer=Harfbuzz]{David CLM}
-\babelfont[english]{rm}{CMU Serif}
 \setmonofont{CMU Typewriter Text}
 
 % === MATH ===
 \usepackage{amsmath, amssymb}
 
-% Fix bullets (Hebrew font lacks bullet glyph)
-\renewcommand{\labelitemi}{$$\vcenter{\hbox{\tiny$$\bullet$$}}$$}
+% Fix bullets
+\renewcommand{\labelitemi}{\raisebox{0.2ex}{\scalebox{0.6}{$$\bullet$$}}}
 
-% === PANDOC NEEDS THESE ===
+% === PANDOC REQUIRED PACKAGES ===
 \usepackage{longtable, booktabs, graphicx, hyperref}
+\usepackage{xcolor, fancyvrb} % חובה בשביל קוד
+
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\newcounter{none} % Pandoc tables reference this
+% Pandoc will inject the color definitions and environments here automatically:
+$highlighting-macros$
+\newcounter{none}
+% remove numbers from titles
+\setcounter{secnumdepth}{0}
 
 % === DOCUMENT ===
 \begin{document}
@@ -33,5 +38,6 @@ $if(title)$
 \begin{center}\textbf{\Large $title$}\end{center}
 \vspace{0.5em}
 $endif$
+
 $body$
 \end{document}

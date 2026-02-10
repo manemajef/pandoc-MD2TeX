@@ -1,0 +1,17 @@
+pdf-engine: lualatex
+variables:
+  geometry: a4paper,margin=2cm
+  colorlinks: true
+  linkcolor: blue
+  urlcolor: blue
+  monofont: "CMU Typewriter Text"
+  header-includes:
+    - "\\usepackage{fontspec}"
+    - "\\usepackage[bidi=basic, layout=tabular]{babel}"
+    - "\\babelprovide[main, import]{hebrew}"
+    - "\\babelprovide[import, onchar=ids fonts]{english}"
+    - "\\babelfont[hebrew]{rm}{David CLM}"
+    - "\\babelfont[english]{rm}{Latin Modern Roman}"
+    - "\\babeltags{he = hebrew, en = english}"
+    - "\\usepackage{graphicx}"
+    - "\\renewcommand{\\labelitemi}{\\raisebox{0.2ex}{\\scalebox{0.6}{\\bullet}}}"

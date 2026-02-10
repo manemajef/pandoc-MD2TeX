@@ -1,24 +1,71 @@
 % !TeX program = lualatex
 \documentclass[11pt, a4paper]{article}
-\usepackage{fontspec}
-\usepackage[bidi=basic]{babel}
-\babelprovide[main, import]{hebrew}
-\babelprovide[import, onchar=ids fonts]{english}
-\babelfont[hebrew]{rm}[Renderer=Harfbuzz]{David CLM}
-\babelfont[english]{rm}{Latin Modern Roman}
+
+% style comment off for smaller spacing
+% \usepackage[a4paper, margin=2cm]{geometry}
+\usepackage[linkcolor=blue,urlcolor=blue,colorlinks=true]{hyperref}
+
+% math
 \usepackage{amsmath, amssymb}
-% Bullet fix
-\usepackage{enumitem, graphicx}
-\renewcommand{\labelitemi}{\raisebox{0.2ex}{\scalebox{0.6}{$\bullet$}}}
-\newcommand{\en}[1]{\foreignlanguage{english}{#1}}
+
+% RTL
+\usepackage[bidi=basic, layout=tabular]{babel}
+\babelprovide[main, import]{hebrew}
+\babelprovide[import,onchar=ids fonts]{english}
+\babelfont[hebrew]{rm}{David CLM}
+
+
+%% RTL Bullet fix
+\usepackage{graphicx}
+\renewcommand{\labelitemi}{\raisebox{0.2ex}{\scalebox{0.6}{\bullet}}}
+
+%% lang switch commands
+\renewcommand{\L}[1]{\foreignlanguage{english}{#1}}
+\newcommand{\R}[1]{\foreignlanguage{hebrew}{#1}}
+
 \newenvironment{english}
   {\begin{otherlanguage}{english}}
   {\end{otherlanguage}}
 
-\setcounter{secnumdepth}{0}
-\title{}
-\author{}
-\date{}
-\begin{document}
+\newenvironment{hebrew}
+  {\begin{otherlanguage}{hebrew}}
+  {\end{otherlanguage}}
 
-\eng{document}
+\babeltags{he=hebrew,eng=english}
+
+
+% rm numbers from title
+\setcounter{secnumdepth}{0}
+\title{תבנית לעטך עם \L{LuaTex}}
+\author{רותם \L{(David)}}
+\date{} 
+\begin{document}
+\maketitle
+
+\section{מדריך שימוש \L{(User Guide)}}
+
+שפת ברירת המחדל היא עברית. באופן כללי, אם כותבים English באמצע זה יעבוד, אבל יש מקרים שבהם ה- 
+\L{\emph{Bidi-Alogirthm}} לא עובד כמו שצריך. 
+לכן, פסקה שמתחילה בעברית, אבל יש בה 
+\L{Some English} בעמצע, רצוי לכתוב כך.
+\begin{itemize}
+	\item רשימת Bullet בעברית
+\end{itemize}
+
+\[
+\widehat{\sigma^2} = \frac{1}{n-1} \sum_{i=1}^{n}(x_i - \bar{x})^2
+ \]
+
+
+\begin{english}
+\section{English Paragraphs \R{(פסקאות באנגלית)}}
+For English pargraph, use the explicit enviroment which makes it alings to left. you can still use hebrew with the \emph{R} command: \R{הנה, לדוגמא}, While keeping the Main as english.
+
+
+\[
+E[x] = \int_{-\infty}^{\infty}x f(x) dx
+\]
+\end{english}
+
+
+\end{document}

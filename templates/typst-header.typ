@@ -2,7 +2,7 @@
 
 // #set text(font: "Arial")
 
-#set text(lang: "en", font: "NewComputerModern")
+// #set text(lang: "en", font: "NewComputerModern")
 #set text(lang: "he", font: "David CLM")
 
 // Configure code blocks
